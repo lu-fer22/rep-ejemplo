@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include "menu_p"
+#include "menu.h"
+#include "altas.h"
 
 struct persona{
     char *nombre;
     int edad;
     char genero;
     char fn[8];
-    struct alumno *ptrAlumno;
-    struct persona *sigPersona;
+    struct alumno *ptrAlum;
+    struct persona *ptrSig;
 };
 
 struct alumno{
@@ -19,5 +20,22 @@ struct alumno{
 };
 
 int main(void){
-    menu();
+    int op;
+    struct persona *ptr;
+
+    do{
+        op=menuPrincipal();
+
+        switch(op){
+            case 1: 
+                altas(&ptr);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            default: 
+                break;
+        }
+    }while(op!=0);
 }
